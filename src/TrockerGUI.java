@@ -1,4 +1,7 @@
 import java.awt.event.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.*;
 
@@ -61,7 +64,7 @@ public class TrockerGUI {
 					String lastName = newMemberPanel.getLastName();
 					boolean waiver = newMemberPanel.getWaiver();
 					int experience = newMemberPanel.getExperience();
-					trockerPanel.getList().add(new Member(gNumber, firstName, lastName, waiver, experience, null), new RouteArray());
+					trockerPanel.getList().add(new Member(gNumber, firstName, lastName, waiver, experience), new RouteArray());
 				}
 			}
 
@@ -76,6 +79,9 @@ public class TrockerGUI {
 				trockerPanel.setAttemptsLabel("Total Attempts: " + temp.getRouteArrayData().getTotalAttempts());
 				trockerPanel.setCompletionsLabel("Total Completions: " + temp.getRouteArrayData().getTotalCompletions());
 				trockerPanel.setTimeLabel("Time Spent at Gym: " + temp.getRouteArrayData().timeAtGymToString());
+				Date date = temp.getMemberData().getStartDate();
+				DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+				trockerPanel.setStartDateLabel("Start Date: " + dateFormat.format(date));
 				trockerPanel.setDisplayArea(temp.getRouteArrayData().toString());
 			}
 			

@@ -1,4 +1,7 @@
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Member implements Serializable {
@@ -10,18 +13,17 @@ public class Member implements Serializable {
 	public String lastName;
 	public boolean waiver;
 	public int experienceLevel;
-	public GregorianCalendar startDate;
+	public Date startDate;
 
 	//constructor creates new member
 	public Member(String gNumber, String firstName, String lastName, 
-			boolean waiver, int experienceLevel, 
-			GregorianCalendar startDate) {
+			boolean waiver, int experienceLevel) {
 		this.gNumber = gNumber;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.waiver = waiver;
 		this.experienceLevel = experienceLevel;
-		this.startDate = startDate;
+		this.startDate = new Date();		
 	}
 
 	public String getgNumber() {
@@ -71,11 +73,11 @@ public class Member implements Serializable {
 		this.experienceLevel = experienceLevel;
 	}
 
-	public GregorianCalendar getStartDate() {
+	public Date getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(GregorianCalendar startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 
