@@ -75,6 +75,7 @@ public class TrockerGUI {
 				trockerPanel.setExperienceLabel("Experience: " + temp.getMemberData().getExperienceLevel());
 				trockerPanel.setAttemptsLabel("Total Attempts: " + temp.getRouteArrayData().getTotalAttempts());
 				trockerPanel.setCompletionsLabel("Total Completions: " + temp.getRouteArrayData().getTotalCompletions());
+				trockerPanel.setTimeLabel("Time Spent at Gym: " + temp.getRouteArrayData().timeAtGymToString());
 				trockerPanel.setDisplayArea(temp.getRouteArrayData().toString());
 			}
 			
@@ -97,8 +98,12 @@ public class TrockerGUI {
 					String routeName = updateRoutePanel.getRouteName();
 					int addedAttempts = updateRoutePanel.getAttempts();
 					boolean completed = updateRoutePanel.isCompleted();
+					long hours = updateRoutePanel.getHours();
+					long minutes = updateRoutePanel.getMinutes();
+					long seconds = updateRoutePanel.getSeconds();
 					trockerPanel.getList().find(gNumber).getRouteArrayData().findRoute(routeName).addAttempts(addedAttempts);
 					trockerPanel.getList().find(gNumber).getRouteArrayData().findRoute(routeName).setCompleted(completed);
+					trockerPanel.getList().find(gNumber).getRouteArrayData().findRoute(routeName).addTime(hours, minutes, seconds);
 				}
 			}
 

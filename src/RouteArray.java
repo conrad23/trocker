@@ -2,12 +2,27 @@ import java.util.ArrayList;
 
 public class RouteArray {
 
-	//TODO: total time for all routes
+	public long timeSpentAtGym;
 	
 	public ArrayList<Route> listOfRoutes;
 	
 	public RouteArray() {
 		listOfRoutes = new ArrayList<Route>();
+		timeSpentAtGym = 0;
+	}
+	
+	public String timeAtGymToString() {
+		timeSpentAtGym = 0;
+		for (int i = 0; i < listOfRoutes.size(); i++) 
+			timeSpentAtGym += listOfRoutes.get(i).getTotalTime();
+		String str = "";
+		long hours = timeSpentAtGym / 3600;
+		long minutes = (timeSpentAtGym % 3600) / 60;
+		long seconds = timeSpentAtGym % 60;
+		str += (Long.toString(hours) + ":");
+		str += (Long.toString(minutes) + ":");
+		str += (Long.toString(seconds));
+		return str;
 	}
 	
 	public ArrayList<Route> getRouteList() {
