@@ -1,3 +1,11 @@
+/**********************************************************************
+ * LinkedList stores Members and their corresponding RouteArrays in
+ * a linked list data structure.
+ * 
+ * @author Stephanie Cappello
+ * @author Conner Toney
+ * @author Tony Alberty
+ *********************************************************************/
 import java.io.Serializable;
 
 public class LinkedList implements Serializable {
@@ -5,15 +13,18 @@ public class LinkedList implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int count;
 	private Node head;
-	private boolean isFound;
 
-	//constructor creates empty list
+	/******************************************************************
+	 * Basic constructor creates empty linked list
+	 *****************************************************************/
 	public LinkedList() {
 		head = null;
 		count = 0;
 	}
 
-	//adds new node with member & routearray
+	/******************************************************************
+	 * Adds a Member and RouteArray to the linked list
+	 *****************************************************************/
 	public void add(Member memberData, RouteArray raData) {
 		Node temp = new Node(memberData, raData);
 		Node current = head;
@@ -39,9 +50,11 @@ public class LinkedList implements Serializable {
 		count++;
 	}
 
-	//gets node at given index
+	/******************************************************************
+	 * Gets a Node from the given index
+	 *****************************************************************/
 	public Node getNode(int index) {
-		if (index <= 0)
+		if (index <= 0 || index > count)
 			throw new IndexOutOfBoundsException();
 
 		Node current = head;
@@ -54,19 +67,29 @@ public class LinkedList implements Serializable {
 		return current;
 	}
 
-	//finds node with given gnumber
+	/******************************************************************
+	 * Find a Node based upon the given student's gnumber
+	 *****************************************************************/
 	public Node find(String gNumber) {
+		if (gNumber.length() != 9 || !gNumber.matches("[0-9]+"))
+			throw new IllegalArgumentException();
+
 		Node current = head;
-		isFound = false;
 
 		while (current != null) {
 			if (current.getMemberData().getgNumber().equals(gNumber)) {
-				isFound = true;
 				return current;
 			}
 			current = current.getNext();
 		}
 		return null;
+	}
+
+	/******************************************************************
+	 * Gets the current size of the linked list
+	 *****************************************************************/
+	public int getSize() {
+		return count;
 	}
 
 

@@ -1,13 +1,18 @@
+/**********************************************************************
+ * Member object is used to contain various information about the
+ * members of the GVSU rock climbing club.
+ * 
+ * @author Stephanie Cappello
+ * @author Conner Toney
+ * @author Tony Alberty
+ *********************************************************************/
+
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 public class Member implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
 	public String gNumber;
 	public String firstName;
 	public String lastName;
@@ -15,9 +20,25 @@ public class Member implements Serializable {
 	public int experienceLevel;
 	public Date startDate;
 
-	//constructor creates new member
+	/******************************************************************
+	 * Basic constructor for Member object.
+	 * @param gNumber student's gnumber
+	 * @param firstName student's first name
+	 * @param lastName student's last name
+	 * @param waiver has student signed waiver
+	 * @param experienceLevel level of student's experience
+	 *****************************************************************/
 	public Member(String gNumber, String firstName, String lastName, 
 			boolean waiver, int experienceLevel) {
+		if (gNumber.length() != 9 || !gNumber.matches("[0-9]+"))
+			throw new IllegalArgumentException();
+		if (!firstName.matches("[a-zA-Z]+") || firstName.length() == 0)
+			throw new IllegalArgumentException();
+		if (!lastName.matches("[a-zA-Z]+") || lastName.length() == 0)
+			throw new IllegalArgumentException();
+		if (experienceLevel < 1 || experienceLevel > 3)
+			throw new IllegalArgumentException();
+
 		this.gNumber = gNumber;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -25,6 +46,23 @@ public class Member implements Serializable {
 		this.experienceLevel = experienceLevel;
 		this.startDate = new Date();		
 	}
+
+	/******************************************************************
+	 * Gets a String version of whether or not the waiver form's signed
+	 * @return yes if signed, no if not
+	 *****************************************************************/
+	public String getWaiver() {
+		if (waiver)
+			return "Yes";
+		else
+			return "No";
+	}
+
+	/******************************************************************
+	 * 
+	 * Various getters & setters for Member object.
+	 * 
+	 *****************************************************************/
 
 	public String getgNumber() {
 		return gNumber;
@@ -52,13 +90,6 @@ public class Member implements Serializable {
 
 	public boolean isWaiver() {
 		return waiver;
-	}
-	
-	public String getWaiver() {
-		if (waiver)
-			return "Yes";
-		else
-			return "No";
 	}
 
 	public void setWaiver(boolean waiver) {

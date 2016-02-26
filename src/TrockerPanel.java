@@ -1,5 +1,12 @@
+/**********************************************************************
+ * TrockerPanel is the main panel used to interact with all the
+ * rock club information.
+ * 
+ * @author Stephanie Cappello
+ * @author Conner Toney
+ * @author Tony Alberty
+ *********************************************************************/
 import java.awt.GridLayout;
-
 import javax.swing.*;
 
 public class TrockerPanel extends JPanel{
@@ -11,6 +18,7 @@ public class TrockerPanel extends JPanel{
 	private JLabel timeLabel, attemptsLabel, completionsLabel;
 	
 	private JPanel southPanel;
+	@SuppressWarnings("unused")
 	private JScrollPane scrollPane;
 	private JTextArea displayArea;
 	
@@ -129,5 +137,4 @@ public class TrockerPanel extends JPanel{
 	public void setDisplayArea(String routes) {
 		displayArea.setText(routes);
 	}
-	
 }

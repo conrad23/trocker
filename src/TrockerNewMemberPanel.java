@@ -1,9 +1,14 @@
-import java.awt.Checkbox;
-import java.awt.GridLayout;
+/**********************************************************************
+ * TrockerNewMemberPanel is the panel used to add a new member to
+ * the rock climbing club database.
+ * 
+ * @author Stephanie Cappello
+ * @author Conner Toney
+ * @author Tony Alberty
+ *********************************************************************/
+import java.awt.*;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 public class TrockerNewMemberPanel extends JPanel {
 
@@ -12,6 +17,9 @@ public class TrockerNewMemberPanel extends JPanel {
 	private JTextField gNumberTxt, firstNameTxt, lastNameTxt;
 	private Checkbox waiverBox, experience1, experience2, experience3;
 
+	/******************************************************************
+	 * Constructor creates panel used to gather new member info
+	 *****************************************************************/
 	public TrockerNewMemberPanel() {
 		JPanel topPanel = new JPanel();
 		topPanel.setLayout(new GridLayout(3, 2));
@@ -27,12 +35,12 @@ public class TrockerNewMemberPanel extends JPanel {
 		topPanel.add(firstNameTxt);
 		topPanel.add(lastNameLabel);
 		topPanel.add(lastNameTxt);
-		
+
 		JPanel middlePanel = new JPanel();
 		middlePanel.setLayout(new GridLayout(1, 1));
 		waiverBox = new Checkbox("Waiver");
 		middlePanel.add(waiverBox);
-		
+
 		JPanel bottomPanel = new JPanel();
 		bottomPanel.setLayout(new GridLayout(1, 3));
 		experience1 = new Checkbox("Beginner");
@@ -51,22 +59,22 @@ public class TrockerNewMemberPanel extends JPanel {
 	public String getGNumber() {
 		return gNumberTxt.getText();
 	}
-	
+
 	public String getFirstName() {
 		return firstNameTxt.getText();
 	}
-	
+
 	public String getLastName() {
 		return lastNameTxt.getText();
 	}
-	
+
 	public boolean getWaiver() {
 		if (waiverBox.getState())
 			return true;
 		else
 			return false;
 	}
-	
+
 	public int getExperience() {
 		if (experience1.getState() && !experience2.getState() && !experience3.getState())
 			return 1;
