@@ -1,8 +1,8 @@
 package cis350.group.trocker.view;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
+//import javafx.scene.control.Alert;
+//import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import cis350.group.trocker.model.Member;
@@ -133,14 +133,14 @@ public class MemberEditDialogController {
 			return true;
 		} else {
 			// Show the error message.
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.initOwner(dialogStage);
-			alert.setTitle("Invalid Fields");
-			alert.setHeaderText("Please correct invalid fields");
-			alert.setContentText(errorMessage);
-
-			alert.showAndWait();
-
+//			Alert alert = new Alert(AlertType.ERROR);
+//			alert.initOwner(dialogStage);
+//			alert.setTitle("Invalid Fields");
+//			alert.setHeaderText("Please correct invalid fields");
+//			alert.setContentText(errorMessage);
+//
+//			alert.showAndWait();
+//
 			return false;
 		}
 	}
