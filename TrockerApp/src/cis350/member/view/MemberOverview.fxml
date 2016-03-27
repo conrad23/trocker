@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <!-- TODO Add Nodes -->
+  <children>
+    <SplitPane dividerPositions="0.5016722408026756" focusTraversable="true" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <children>
+            <TableView editable="false" prefHeight="298.0" prefWidth="297.0" tableMenuButtonVisible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="First Name" />
+                <TableColumn prefWidth="75.0" text="Last Name" />
+                <TableColumn prefWidth="75.0" text="G Number" />
+              </columns>
+            </TableView>
+          </children>
+        </AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <children>
+            <Label layoutX="7.0" layoutY="6.0" text="Person Details" />
+            <GridPane gridLinesVisible="true" prefHeight="118.99990000000253" prefWidth="295.0000999999975" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+              <children>
+                <Label text="Last Name" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <Label text="First Name" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <Label text="G Number" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <Label text="Phone Number" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <Label text="Waiver" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <Label text="Experience" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <effect>
+                <InnerShadow />
+              </effect>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <ToolBar prefHeight="32.0" prefWidth="167.0" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="0.0">
+              <items>
+                <Button alignment="BASELINE_RIGHT" mnemonicParsing="false" text="new" textAlignment="CENTER" />
+                <Button alignment="BASELINE_RIGHT" mnemonicParsing="false" text="edit" textAlignment="CENTER" />
+                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" text="delete" textAlignment="CENTER" />
+              </items>
+            </ToolBar>
+          </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+  </children>
+</AnchorPane>
