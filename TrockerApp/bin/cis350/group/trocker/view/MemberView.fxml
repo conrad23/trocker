@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="860.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="cis350.group.trocker.MemberController">
+<AnchorPane prefHeight="500.0" prefWidth="860.0" styleClass="background" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="cis350.group.trocker.MemberController">
   <!-- TODO Add Nodes -->
   <children>
-    <SplitPane dividerPositions="0.3997668997668998" focusTraversable="true" prefHeight="500.0" prefWidth="860.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <SplitPane dividerPositions="0.3930232558139535" focusTraversable="true" prefHeight="500.0" prefWidth="860.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <items>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="357.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="357.0" styleClass="background">
           <children>
             <TableView fx:id="memberTable" prefHeight="478.0" prefWidth="320.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
               <columns>
@@ -20,10 +21,17 @@
               </columns>
             </TableView>
           </children>
+          <stylesheets>
+            <URL value="@DarkTheme.css" />
+          </stylesheets>
         </AnchorPane>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="452.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="452.0" styleClass="background">
           <children>
-            <Label prefWidth="242.0" text="Member Details" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+            <Label prefWidth="242.0" styleClass="label-header" text="Member Details:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="15.0">
+              <stylesheets>
+                <URL value="@DarkTheme.css" />
+              </stylesheets>
+            </Label>
             <GridPane prefHeight="155.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0">
               <children>
                 <Label text="First Name" GridPane.columnIndex="0" GridPane.rowIndex="0" />
@@ -54,15 +62,19 @@
             </GridPane>
             <TableView prefHeight="189.0" prefWidth="323.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="230.0">
               <columns>
-                <TableColumn prefWidth="152.0" text="Name" />
+                <TableColumn prefWidth="150.0" text="Name" />
                 <TableColumn prefWidth="50.0" text="Level" />
                 <TableColumn prefWidth="65.0" text="Attempts" />
-                <TableColumn prefWidth="75.0" text="Completion" />
+                <TableColumn prefWidth="80.0" text="Completion" />
                 <TableColumn prefWidth="75.0" text="Total Time" />
-                <TableColumn prefWidth="74.0" text="Best Time" />
+                <TableColumn prefWidth="70.0" text="Best Time" />
               </columns>
             </TableView>
-            <Label text="Route Details" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="200.0" />
+            <Label styleClass="label-header" text="Route Details:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="205.0">
+              <stylesheets>
+                <URL value="@DarkTheme.css" />
+              </stylesheets>
+            </Label>
             <HBox id="HBox" alignment="CENTER" spacing="5.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
               <children>
                 <Button mnemonicParsing="false" onAction="#handleNewMember" text="New..." />
@@ -71,8 +83,17 @@
               </children>
             </HBox>
           </children>
+          <stylesheets>
+            <URL value="@DarkTheme.css" />
+          </stylesheets>
         </AnchorPane>
       </items>
+      <stylesheets>
+        <URL value="@DarkTheme.css" />
+      </stylesheets>
     </SplitPane>
   </children>
+  <stylesheets>
+    <URL value="@DarkTheme.css" />
+  </stylesheets>
 </AnchorPane>
