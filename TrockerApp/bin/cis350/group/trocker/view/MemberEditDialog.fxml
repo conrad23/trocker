@@ -45,6 +45,6 @@
     </HBox>
   </children>
   <stylesheets>
-    <URL value="@DarkTheme.css" />
+    <URL value="@GVSUTheme.css" />
   </stylesheets>
 </AnchorPane>
