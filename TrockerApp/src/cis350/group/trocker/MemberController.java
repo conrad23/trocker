@@ -1,15 +1,12 @@
 package cis350.group.trocker;
 
+
 import cis350.group.trocker.model.*;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class MemberController {
@@ -43,7 +40,7 @@ public class MemberController {
 
 	@FXML
 	private Label experienceLabel;
-
+		
 	private MainApp mainApp;
 
 	public MemberController() {
@@ -112,6 +109,21 @@ public class MemberController {
 			mainApp.getMemberList().add(tempMem);
 		}
 	}
+	
+	@FXML
+	private void handleNewRoute() {
+		
+	}
+	
+	@FXML
+	private void handleEditRoute() {
+		
+	}
+	
+	@FXML
+	private void handleDeleteRoute() {
+		
+	}
 
 	/**
 	 * Called when the user clicks the edit button. Opens a dialog to edit
@@ -128,13 +140,14 @@ public class MemberController {
 
 		} else {
 			// Nothing selected.
-			Alert alert = new Alert(AlertType.WARNING);
-			alert.initOwner(mainApp.getPrimaryStage());
-			alert.setTitle("No Selection");
-			alert.setHeaderText("No Member Selected");
-			alert.setContentText("Please select a Member in the table.");
+//			Alert alert = new Alert(AlertType.WARNING);
+//			alert.initOwner(mainApp.getPrimaryStage());
+//			alert.setTitle("No Selection");
+//			alert.setHeaderText("No Member Selected");
+//			alert.setContentText("Please select a Member in the table.");
+			
 
-			alert.showAndWait();
+//			alert.showAndWait();
 		}
 	}
 }

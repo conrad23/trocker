@@ -1,8 +1,14 @@
 package cis350.group.trocker;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.prefs.Preferences;
+
+import com.thoughtworks.xstream.XStream;
 
 import cis350.group.trocker.model.Member;
+import cis350.group.trocker.util.FileUtil;
 import cis350.group.trocker.view.MemberEditDialogController;
 import javafx.application.Application;
 import javafx.collections.*;
@@ -39,12 +45,21 @@ public class MainApp extends Application {
 			rootLayout = (BorderPane) loader.load();
 			Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
+			
+			RootLayoutController controller = loader.getController();
+			controller.setMainApp(this);
+			
 			primaryStage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
 		showMemberOverview();
+		
+		File file = getMemberFilePath();
+		if (file != null) {
+			loadMemberDataFromFile(file);
+		}
 	}
 
 	public Stage getPrimaryStage() {
@@ -95,6 +110,85 @@ public class MainApp extends Application {
 		} catch (IOException e) {
 			e.printStackTrace();
 			return false;
+		}
+	}
+
+	public void showWaiverStatistics() {
+		try {
+			// Load the fxml file and create a new stage for the popup
+			FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/WaiverStatistics.fxml"));
+			AnchorPane page = (AnchorPane) loader.load();
+			Stage dialogStage = new Stage();
+			dialogStage.setTitle("Waiver Statistics");
+			dialogStage.initModality(Modality.WINDOW_MODAL);
+			dialogStage.initOwner(primaryStage);
+			Scene scene = new Scene(page);
+			dialogStage.setScene(scene);
+
+			// Set the persons into the controller
+			WaiverStatisticsController controller = loader.getController();
+			controller.setMemberData(memberList);
+
+			dialogStage.show();
+
+		} catch (IOException e) {
+			// Exception gets thrown if the fxml file could not be loaded
+			e.printStackTrace();
+		}
+	}
+
+	public File getMemberFilePath() {
+		Preferences pref = Preferences.userNodeForPackage(MainApp.class);
+		String filePath = pref.get("filePath", null);
+		if (filePath != null) {
+			return new File(filePath);
+		} else {
+			return null;
+		}
+	}
+
+	public void setMemberFilePath(File file) {
+		Preferences pref = Preferences.userNodeForPackage(MainApp.class);
+		if (file != null) {
+			pref.put("filePath", file.getPath());
+
+			primaryStage.setTitle("Trocker App - " + file.getName());
+		} else {
+			pref.remove("filePath");
+			primaryStage.setTitle("Trocker App");
+		}
+	}
+
+	public void loadMemberDataFromFile(File file) {
+		XStream xstream = new XStream();
+		xstream.alias("member", Member.class);
+
+		try {
+			String xml = FileUtil.readFile(file);
+
+			ArrayList<Member> mList = (ArrayList<Member>) xstream.fromXML(xml);
+
+			memberList.clear();
+			memberList.addAll(mList);
+
+			setMemberFilePath(file);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void saveMemberDataToFile(File file) {
+		XStream xstream = new XStream();
+		xstream.alias("member", Member.class);
+		
+		ArrayList<Member> mList = new ArrayList<>(memberList);
+		
+		String xml = xstream.toXML(mList);
+		try {
+			FileUtil.saveFile(xml, file);
+			setMemberFilePath(file);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
